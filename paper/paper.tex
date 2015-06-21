@@ -1,12 +1,13 @@
-\documentclass{article}
-
-\usepackage{fullpage}
-\usepackage[parfill]{parskip}
+\documentclass[a4paper]{article}
 
 \usepackage[backend=biber,firstinits=true , backref=false, url=true, isbn=true]{biblatex}
 \addbibresource{library.bib}
 
-\title{Playing Games: A Case Study in Active Learning}
+\usepackage{fullpage} % Package to use full page
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
 \date{\today}
 
@@ -20,19 +21,51 @@ A paper about active learning and using some example of this in a class on Game 
 
 \section{Introduction}
 
+Modern pedagogic theories as to how learning takes place such as constructivism
+and socialism \cite{Illeris2009, Jordan2008a}, indicate that an \textbf{active
+learning} approach is of benefit to student learning.  As stated in
+\cite{Prince2004} there are a variety of complementary definitions of active
+learning, however the general definition given in \cite{Prince2004} is the one
+assumed in this paper:
+
+\begin{quote}
+``Active learning is generally defined as any instructional method that engages
+students in the learning process. In short active learning requires students to
+do meaningful learning activities and think about what they are doing.''
+\end{quote}
+
+One could argue that all learning is active as students simply listening to a
+lecture are perhaps taking part in a `meaningful learning activity', however as
+stated in \cite{Bonwell1991} active learning is understood to imply that
+students:
+
 \begin{itemize}
-    \item Describe active learning briefly;
-    \item Describe variety of techniques
-    \item Mention lack of how to's
-    \item Describe structure of paper
+    \item read, write, discuss, or engage in solving problems;
+    \item engage in higher order tasks such as analysis, synthesis and
+        evaluation.
 \end{itemize}
 
-\section{Overview of Active Learning}
+A variety of studies have highlighted the effectiveness of active learning
+\cite{Freeman2014, Hake1998, Prince2004}. These two papers are in fact meta studies
+evaluating the effectiveness an active student centred approach. Note that the
+definition used in \cite{Freeman2014} corresponds to simply any pedagogic
+approach in which students are not passive consumers of a lecture during the
+class meeting.
+
+Some examples of active learning in a variety of subjects include:
 
 \begin{itemize}
-    \item reference literature
-    \item show some results
+    \item The flipped learning environment in a Physics class: \cite{Bates}.
+    \item Inquiry based learning for the instruction of differential equations:
+        \cite{Kwon2005}.
+    \item Using collaborative learning in a pharmacology class:
+        \cite{Depaz2008}.
 \end{itemize}
+
+The above sources (and references therein) generally discuss the pedagogic
+approach from a macroscopic point of view with regards to the course considered.
+This manuscript will give a detailed description of two particular active
+learning activities used in the instruction of Game Theoretic concepts.
 
 \section{An exemplar: a course in game theory}
 
@@ -43,26 +76,24 @@ A paper about active learning and using some example of this in a class on Game 
         purely examples, which give data for games)
 \end{itemize}
 
-\subsection{Mixed strategies}
+\subsection{Best responses}
 
 \begin{itemize}
-    \item Some of the theory
-    \item Playing v machine
-    \item RPSLS tournament
+    \item The two thirds of the average game: how this is a basic game
+    \item How it is played in class
+    \item Description of data and discussion that ensues
 \end{itemize}
 
 \subsection{Repeated and random games}
 
 \begin{itemize}
     \item The theory
-    \item Tournaments: 1, 2 and 3.
-\end{itemize}
-
-\subsection{Cooperative games}
-
-\begin{itemize}
-    \item The theory
-    \item Explain the idea.
+    \item Tournaments:
+        \begin{itemize}
+            \item Basic type.
+            \item Infinitely repeated game.
+            \item Markov games.
+        \end{itemize}
 \end{itemize}
 
 \section{Summary}
