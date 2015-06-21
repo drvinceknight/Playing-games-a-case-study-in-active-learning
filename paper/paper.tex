@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass{article}
 
 \usepackage[backend=biber,firstinits=true , backref=false, url=true, isbn=true]{biblatex}
 \addbibresource{library.bib}
@@ -50,9 +50,7 @@ A variety of studies have highlighted the effectiveness of active learning
 evaluating the effectiveness an active student centred approach. Note that the
 definition used in \cite{Freeman2014} corresponds to simply any pedagogic
 approach in which students are not passive consumers of a lecture during the
-class meeting.
-
-Some examples of active learning in a variety of subjects include:
+class meeting. Some examples of active learning in a variety of subjects include:
 
 \begin{itemize}
     \item The flipped learning environment in a Physics class: \cite{Bates}.
@@ -65,26 +63,99 @@ Some examples of active learning in a variety of subjects include:
 The above sources (and references therein) generally discuss the pedagogic
 approach from a macroscopic point of view with regards to the course considered.
 This manuscript will give a detailed description of two particular active
-learning activities used in the instruction of Game Theoretic concepts.
-
-\section{An exemplar: a course in game theory}
+learning activities used in the instruction of Game Theoretic concepts:
 
 \begin{itemize}
-    \item Discuss other examples of how game theory is taught
-    \item Describe this course
-    \item Give description of the general philosophy of the course (no content:
-        purely examples, which give data for games)
+    \item Section \ref{sec:best_responses} will describe an in class activity
+        and software package used to introduce students to the topic of best
+        response dynamic \cite{Maschler2013}.
+    \item Section \ref{sec:repeated_games} will describe an implementation of
+        Axelrod's tournament \cite{Axelrod1980a,Axelrod1980a}.
 \end{itemize}
 
-\subsection{Best responses}
+These activities aim to introduce the student to the concepts and aspire to
+their curiosity as to the underlying mathematics. Note that if there is any
+doubt as to the effectiveness of active learning approaches, for example this paper
+(the only one that this author could identify) \cite{Andrews2011} identifies no
+such relationship are still beneficial to the students' learning.
+Indeed in \cite{Poropat2014}  the greatest predictors of
+academic performance are identified not as general intelligence \cite{Wright1905} but
+personality factors such as conscientiousness and openness.
+
+\section{An exemplar: a course in game theory}\label{sec:game_theory}
+
+Game Theory as a topic is well suited to approaches that use activities
+involving students as players to introduce the concepts, rules and strategies
+for particular games and/or theorems presented.
+
+In \cite{Brokaw2004} one such activity is presented: a game that allow players
+to grasp the concept of common knowledge of rationality. Another good example is
+\cite{Polak2008}: Yale's Professor Polak's course, the videos available at that
+reference (a YouTube playlist) all show that students are introduced to every
+concept through activity before discussing theory.
+
+Just as the activity presented in \cite{Brokaw2004} the activities presented
+here are both suited for as an early introduction to the concepts (although the
+activity of Section \ref{sec:repeated_games} is potentially better suited to
+being used at a later stage). Furthermore, these activities have also been used
+as outreach activities for high school students with no knowledge of further
+mathematics.
+
+\subsection{Best response dynamics}\label{sec:best_responses}
+
+The first step in this activity and potentially before any prior description of
+Game Theory students are invited to answer the following simple question:
+
+\begin{center}
+    \textbf{What is a game?}
+\end{center}
+
+Through discussion the class will usually arrive at the following consensus:
 
 \begin{itemize}
-    \item The two thirds of the average game: how this is a basic game
-    \item How it is played in class
-    \item Description of data and discussion that ensues
+    \item A game must have a certain number \(N\geq 1\) of players;
+    \item Each player must have available to them a certain number of strategies
+        that define what they can do;
+    \item Once all players have chosen their strategy, rules must specify what
+        the outcome is.
 \end{itemize}
 
-\subsection{Repeated and random games}
+This corresponds to the general definition of a strategic form game
+\cite{Maschler2013}. The main goal of this activity is to not only understand
+the vocabulary but also the important concept of response dynamics which aims
+to identify what is the best option given prior knowledge of all other players
+\cite{Maschler2013}. One particular game that can be analysed using base
+response dynamics is often referred to:
+
+\begin{center}
+    \textbf{The two thirds of the average game.}
+\end{center}
+
+A good description of the game and the human dynamics associated to the play is
+given in \cite{Nagel1995}. The rules are as follows:
+
+\begin{itemize}
+    \item All players choose a number between 0 and 100;
+    \item The player whose choice was closest to \(\frac{2}{3}\) of the average
+        of the choices wins.
+\end{itemize}
+
+The activity is similar to the activity described in
+\cite{TheEconomicsNetwork2013}:
+
+\begin{enumerate}
+    \item Students are handed out copies of the form available at URL
+    \item Students are explained the rules of the game and invited to play a
+        first guess.
+    \item After this the class is explained the rationalisation of the game
+        (which uses best response dynamics to iteratively eliminate dominated
+        strategies) as shown in Figure
+        \ref{fig:rationalisation_of_two_thirds_game}.
+    \item Students are invited to play one more time.
+    \item Results are analysed and presented to the class for discussion.
+\end{enumerate}
+
+\subsection{Repeated and random games}\label{sec:repeated_games}
 
 \begin{itemize}
     \item The theory
