@@ -128,3 +128,6 @@ sympy-plots-for-*.tex/
 
 # Mac crap
 *DS_Store
+
+# Ipython stuff
+*.ipynb_checkpoints*
