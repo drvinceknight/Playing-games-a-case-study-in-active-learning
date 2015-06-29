@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{subcaption}
 
 \title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
@@ -71,7 +72,7 @@ learning activities used in the instruction of Game Theoretic concepts:
         and software package used to introduce students to the topic of best
         response dynamic \cite{Maschler2013}.
     \item Section \ref{sec:repeated_games} will describe an implementation of
-        Axelrod's tournament \cite{Axelrod1980a,Axelrod1980a}.
+        Axelrod's tournament \cite{Axelrod1980a, Axelrod1980b}.
 \end{itemize}
 
 These activities aim to introduce the student to the concepts and aspire to
@@ -149,8 +150,14 @@ down a first play. After this initial play, a discussion is had that
 demonstrates that the equilibrium for this game is for all players to guess 0.
 This is shown diagrammatically in Figure
 \ref{fig:rationalisation_of_two_thirds_game}.
+
 Following this discussion students are invited to play again and write down
-their second guess.
+their second guess. All of the results are collected, the author has used paper
+forms but an automated approach could also be used. In general the input and
+analysis of the data takes less than 10 minutes and can be done by a helper
+during another class activity.
+Following this, the result shown in Figure \ref{fig:histogram_of_guess} are
+shown and discussed with the class.
 
 \begin{figure}
     \begin{center}
@@ -205,6 +212,83 @@ their second guess.
     game}\label{fig:rationalisation_of_two_thirds_game}
 \end{figure}
 
+The author has used this activity on a large number of occasions and at all
+times collected the data. Figure \ref{fig:histogram_of_guess} shows the
+distribution of the guesses (depending on the round of play):
+
+\begin{figure}[htpb]
+    \begin{subfigure}{.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../data/histogram_of_guesses.pdf}
+        \caption{Frequency of guesses depending on the round of play.}
+        \label{fig:histogram_of_guess}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../data/jointplot_of_guesses.pdf}
+        \caption{Linear relationship between guesses of each round of play.}
+        \label{fig:jointplot_of_guess}
+    \end{subfigure}
+    \caption{Results from all data collected.}
+    \label{fig:all_results}
+\end{figure}
+
+We see that the second round (after the rationalisation of play described in
+Figure \ref{fig:rationalisation_of_two_thirds_game}) has guesses that are closer
+to the expected equilibrium behaviour.
+Figure \ref{fig:jointplot_of_guess} confirms this showing the linear
+relationship (albeit a weak one with \(R^2=.2\)):
+
+\begin{equation}
+    (\text{Second guess}) = .203\times(\text{First guess}) + 9.45
+    \label{eq:linear_relationship}
+\end{equation}
+
+The fact that the coefficient of the relationship is less than one highlights
+that the second guess is in general lower than the first guess. As can be seen
+in Figure \ref{fig:all_results} not all students reduce their guess. Figure
+\ref{fig:results_with_decreasing_guess} shows the results when removing these
+irrational moves. In this particular case the linear relationship is in fact
+stronger \(R^2=.43\):
+
+\begin{equation}
+    (\text{Second guess}) = .33\times(\text{First guess}) + 0.20
+    \label{eq:linear_relationship}
+\end{equation}
+
+\begin{figure}[htpb]
+    \begin{subfigure}{.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../data/histogram_of_guesses_removing_increasing_guesses.pdf}
+        \caption{Frequency of guesses depending on the round of play.}
+        \label{fig:histogram_of_guess}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../data/jointplot_of_guesses_removing_increasing_guesses.pdf}
+        \caption{Linear relationship between guesses of each round of play.}
+        \label{fig:jointplot_of_guess}
+    \end{subfigure}
+    \caption{Results from data when removing increasing guesses.}
+    \label{fig:results_with_decreasing_guess}
+\end{figure}
+
+At the end of the activity, students are shown the graphical results and a
+discussion had about why the theoretic equilibrium was not the winner. This
+discussion usually revolves around the observation that not everyone acted
+rationally and second that some participants felt like they should `spoil' the
+game by guessing larger in the second round.
+
+Finally, if time permits (and depending on the level of the participants), the
+linear relationship of (\ref{eq:linear_relationship}) is used to discuss what
+would happen if more rounds were to be played. In particular it is possible to
+discuss ideas of convergence when generalising (\ref{eq:linear_relationship}) to
+be:
+
+\begin{equation}
+    \text{Guess}_{n+1} = .203\times\text{Guess}_n + 9.45
+    \label{eq:extrapolated_linear_relationship}
+\end{equation}
 
 \subsection{Repeated and random games}\label{sec:repeated_games}
 
