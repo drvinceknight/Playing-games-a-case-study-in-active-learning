@@ -3,13 +3,13 @@
 \usepackage[backend=biber,firstinits=true , backref=false, url=true, isbn=true]{biblatex}
 \addbibresource{library.bib}
 
-\usepackage{fullpage} % Package to use full page
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{booktabs}
 \usepackage{subcaption}
 
-\usepackage{wordlike}
+\usepackage{wordlike}  % Make this look like word made it
 
 \title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
@@ -161,7 +161,7 @@ during another class activity.
 Following this, the result shown in Figure \ref{fig:histogram_of_guess} are
 shown and discussed with the class.
 
-\begin{figure}
+\begin{figure}[!hbtp]
     \begin{center}
         \begin{tikzpicture}
             % First level of play
@@ -218,7 +218,7 @@ The author has used this activity on a large number of occasions and at all
 times collected the data. Figure \ref{fig:histogram_of_guess} shows the
 distribution of the guesses (depending on the round of play):
 
-\begin{figure}[htpb]
+\begin{figure}[!hbtp]
     \begin{subfigure}{.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../data/histogram_of_guesses.pdf}
@@ -258,7 +258,7 @@ stronger \(R^2=.43\):
     \label{eq:linear_relationship_for_increasing_guesses}
 \end{equation}
 
-\begin{figure}[htpb]
+\begin{figure}[!hbtp]
     \begin{subfigure}{.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../data/histogram_of_guesses_removing_increasing_guesses.pdf}
@@ -312,17 +312,148 @@ encouraging participation (references to these are discussed in \cite{Rocca2010}
 \subsection{Repeated and random games}\label{sec:repeated_games}
 
 This activity is used to introduce students to the concepts of repeated games
+\cite{Maschler2013}. The mathematical details can be omitted from the initial
+description of the activity to the participants but for completeness it they are
+included here:
 
-\begin{itemize}
-    \item The theory
-    \item Tournaments:
-        \begin{itemize}
-            \item Basic type.
-            \item Infinitely repeated game.
-            \item Markov games.
-        \end{itemize}
-\end{itemize}
+A repeated game is played over discrete time periods. Each time period is
+indexed by \(0<t\leq T\) where \(T\) is the total number of periods.  In each
+period \(N\) players play a static game referred to as the \textbf{stage game}
+independently and simultaneously selecting actions.  Players make decisions in
+full knowledge of the \textbf{history} of the game played so far (ie the actions
+chosen by each player in each previous time period).  The payoff is defined
+as the sum of the utilities in each stage game for every time period.
 
+One of the most renowned repeated games is referred to as \textbf{Axelrod's
+tournament} which is what is recreated in this activity \cite{Axelrod1980a,
+Axelrod1980b}.
+
+Initially a description of the prisoner's dilemma \cite{Maschler2013} is given.
+The prisoner's dilemma is a simple two player game that is often used to
+introduce the very basic notions of game theory. It is described by the
+following two matrices:
+
+\[
+    A =
+    \begin{pmatrix}
+        3&5\\
+        0&1
+    \end{pmatrix}
+    \qquad
+    B =
+    \begin{pmatrix}
+        3&0\\
+        5&1
+    \end{pmatrix}
+\]
+
+The row player has utility given by \(A\) and the column player has utilities
+given by \(B\).
+The strategies available to each player are to cooperate: \(C\) or to defect:
+\(D\). Playing \(C\) corresponds to players choosing their first row/column and
+\(D\), the second row/column.
+
+Thus if both players cooperate they both receive a utility of 3, if one player
+defects, the defector gets a utility of 5 and the cooperator a utility of 0.
+Finally if both players defect they receive a utility of 1. As players (in this
+framework) aim to maximise their score, the Nash equilibrium for this game is
+for both players to defect.
+
+After describing this activity and in particular explaining the simple
+mathematical idea of \textbf{dominated strategy} (which is what is used in the
+activity of Section \ref{sec:best_responses}) participants are made aware of the
+concept of Nash equilibrium. This in turn can lead to a brief description of the
+tragic yet brilliant life of John Nash.
+
+At this point the activity is described:
+
+\begin{enumerate}
+    \item All participants will form four groups/teams;
+    \item Teams will \textit{duel} each other in repetitions of 5 to 8 rounds
+        (depending on available time).
+    \item All teams will play in a round robin tournament with cumulative scores
+        being recorded.
+    \item The victorious team will be the team with the highest total score.
+\end{enumerate}
+
+The tournament is run with all participants present (even those not watching).
+All participants are invited to stand and confer in their teams. The importance
+of standing (as a physical activity) is noted in \cite{Donnelly2011} (whilst
+that reference is mainly concerned with the impact of activity on physical well
+being it also describes advantages in terms of concentration).  Before every
+round of every duel opposing teams are encouraged to discuss strategies, after
+which they do not face each other and following a prompt hold up a card
+indicating either \(C\) or \(D\).  Duels are recorded on the white board in a
+table similar to the one shown in Table \ref{tab:duel}, in which two strategies
+constantly cooperate (thus obtaining a utility of 3 in each round). Table
+\ref{tab:duel_1} shows an example where a strategy that is alternating plays
+against a strategy that always defects.
+
+\begin{table}[!htbp]
+    \caption{Playing Tit For Tat against Cooperator}
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        3&6&9&12&15\\
+        \midrule
+        3&6&9&12&15\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:duel}
+\end{table}
+
+\begin{table}[!htbp]
+    \caption{Playing Alternator against Defector}
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        5&6&11&12&17\\
+        \midrule
+        0&1&1&2&2\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:duel_1}
+\end{table}
+
+The names of the strategies shown in Tables \ref{tab:duel} and \ref{tab:duel_1}
+are strategies that were used in the original tournaments run by Axelrod
+\cite{Axelrod1980a, Axelrod1980b}. The interesting fact of repeated games and
+one that becomes apparent to participants through the activity is that whilst
+repeating the stage Nash equilibrium (always defect) is indeed a Nash
+equilibrium for the repeated games, this equilibrium is not unique as
+reputation now has a part to play.
+
+Note that if students do not realise this it is important to remind them that
+the goal is not to win each duel but to obtain a high score. Often during the
+tournament one team will (during the pre round discussion) exclaim:
+
+\begin{quote}
+   ``We will cooperate until you defect, at which point we will defect
+throughout''
+\end{quote}
+
+Without realising it the participants have described a well known strategy
+(\textbf{Grudger}) which takes in to account the entire history of play.
+Figure \ref{fig:} shows a photo of a final board for a particular implementation
+of this activity.
+
+This activity can be complemented with a demonstration of software that allows
+for the rapid simulation of Axelrod's tournament \cite{Knight2015}. Figure
+\ref{fig:evolutionary_axelrod} shows the performance of the strategies when put
+in an evolutionary context.
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=.6\textwidth]{static/basic_strategies-reproduce.pdf}
+    \caption{Repeated games in an evolutionary context}
+    \label{fig:evolutionary_axelrod}
+\end{figure}
+
+Weakness about all participants observing...
+
+As well as being enjoyable this activity is a good intro to...
+
+Furthermore can be modified to study ...
 
 \section{Summary}
 
