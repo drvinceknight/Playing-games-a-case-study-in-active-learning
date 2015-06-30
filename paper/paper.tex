@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[backend=biber,firstinits=true , backref=false, url=true, isbn=true]{biblatex}
+\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true]{biblatex}
 \addbibresource{library.bib}
 
 \usepackage{amsmath}
@@ -163,7 +163,7 @@ shown and discussed with the class.
 
 \begin{figure}[!hbtp]
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[thick,scale=0.7, every node/.style={scale=0.7}]
             % First level of play
             \node (0) at (0,0) {$0$};
             \node (100) at (10,0) {$100$};
@@ -221,13 +221,13 @@ distribution of the guesses (depending on the round of play):
 \begin{figure}[!hbtp]
     \begin{subfigure}{.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../data/histogram_of_guesses.pdf}
+        \includegraphics[width=\textwidth]{static/histogram_of_guesses.pdf}
         \caption{Frequency of guesses depending on the round of play.}
         \label{fig:histogram_of_guess}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../data/jointplot_of_guesses.pdf}
+        \includegraphics[width=\textwidth]{static/jointplot_of_guesses.pdf}
         \caption{Linear relationship between guesses of each round of play.}
         \label{fig:jointplot_of_guess}
     \end{subfigure}
@@ -261,13 +261,13 @@ stronger \(R^2=.43\):
 \begin{figure}[!hbtp]
     \begin{subfigure}{.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../data/histogram_of_guesses_removing_increasing_guesses.pdf}
+        \includegraphics[width=\textwidth]{static/histogram_of_guesses_removing_increasing_guesses.pdf}
         \caption{Frequency of guesses depending on the round of play.}
         \label{fig:histogram_of_guess}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../data/jointplot_of_guesses_removing_increasing_guesses.pdf}
+        \includegraphics[width=\textwidth]{static/jointplot_of_guesses_removing_increasing_guesses.pdf}
         \caption{Linear relationship between guesses of each round of play.}
         \label{fig:jointplot_of_guess}
     \end{subfigure}
@@ -415,6 +415,16 @@ against a strategy that always defects.
     \label{tab:duel_1}
 \end{table}
 
+Figure \ref{fig:white_board} shows a photo of a final board for a particular
+implementation of this activity.
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=.5\textwidth]{static/white_board.jpg}
+    \caption{A photo of an actual implementation of the tournament.}
+    \label{fig:white_board}
+\end{figure}
+
 The names of the strategies shown in Tables \ref{tab:duel} and \ref{tab:duel_1}
 are strategies that were used in the original tournaments run by Axelrod
 \cite{Axelrod1980a, Axelrod1980b}. The interesting fact of repeated games and
@@ -434,26 +444,46 @@ throughout''
 
 Without realising it the participants have described a well known strategy
 (\textbf{Grudger}) which takes in to account the entire history of play.
-Figure \ref{fig:} shows a photo of a final board for a particular implementation
-of this activity.
 
 This activity can be complemented with a demonstration of software that allows
-for the rapid simulation of Axelrod's tournament \cite{Knight2015}. Figure
-\ref{fig:evolutionary_axelrod} shows the performance of the strategies when put
-in an evolutionary context.
+for the rapid simulation of Axelrod's tournament
+\cite{Axelrod-Pythonprojectteam2015}. Figure \ref{fig:evolutionary_axelrod}
+shows the performance of the strategies when put in an evolutionary context.
 
 \begin{figure}[!hbtp]
     \centering
     \includegraphics[width=.6\textwidth]{static/basic_strategies-reproduce.pdf}
-    \caption{Repeated games in an evolutionary context}
+    \caption{Repeated games in an evolutionary context.}
     \label{fig:evolutionary_axelrod}
 \end{figure}
 
-Weakness about all participants observing...
+One of the weaknesses of this approach is that all participants observe the play
+by all the teams. Whilst from a mathematical perspective reputation is inferred
+to mean the reputation gained during a particular duel, this has the effect of
+teams being able to observe how other teams seem to play. A true replication of
+Axelrod's tournament would not allow for this. One possibility would invite
+participants to leave the room which might be logistically constrained. From a
+pedagogic point of view however, having participants observe the duels often
+leads to a much more engaged discussion (after as well as during the activity).
 
-As well as being enjoyable this activity is a good intro to...
+This activity is usually very enjoyable and leads to a lively discussion.
+Further to the fun had by participants, the theoretic discussion about repeated
+games can be placed in the exact context of the tournament that was just played.
 
-Furthermore can be modified to study ...
+This tournament can be used to introduce further game theoretic topics with
+slight modifications:
+
+\begin{itemize}
+    \item \textbf{Infinitely repeated games with discounting}: the discount
+        factor can be interpreted as a probability of the duel continuing for
+        another round (this can be randomly sampled).
+    \item \textbf{Markov games}: the two random game states can be a true game
+        and an absorbing game so that this corresponds to an infinite game with
+        discounting.
+    \item \textbf{Evolutionary games}: the two random game states can be a true game
+        and an absorbing game so that this corresponds to an infinite game with
+        discounting.
+\end{itemize}
 
 \section{Summary}
 
