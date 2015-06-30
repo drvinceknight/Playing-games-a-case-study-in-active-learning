@@ -7,11 +7,14 @@
 
 \usepackage{amsmath}
 \usepackage{hyperref}
-\usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{subcaption}
 
 \usepackage{wordlike}  % Make this look like word made it
+
+% Diagrams
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 \title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
@@ -22,10 +25,23 @@
 \maketitle
 
 \abstract{
-A paper about active learning and using some example of this in a class on Game Theory
+    This paper describes two active learning activities aiming to introduce
+    students to the theoretic concepts of best response dynamics and repeated
+    game analysis.
+
+    An overview of some literature on active learning and the benefits therein
+    is also provided. This highlights that activities such as the one described
+    in this manuscript not only help engage students but more importantly
+    improve their learning and understanding.
+
+    The final section of the work describes how these activities fit in the
+    pedagogic framework of a particular class. Students generate data that
+    can be used as context for the understanding of theoretic concepts. It is
+    suggested that this framework is not restricted to the subject of game
+    theory.
 }
 
-\section{Introduction}
+\section{Introduction}\label{sec:introduction}
 
 Modern pedagogic theories as to how learning takes place such as constructivism
 and socialism \cite{Illeris2009, Jordan2008a}, indicate that an \textbf{active
@@ -459,7 +475,7 @@ shows the performance of the strategies when put in an evolutionary context.
     \label{fig:evolutionary_axelrod}
 \end{figure}
 
-One of the inconsistancies of this approach is that all participants observe the
+One of the inconsistencies of this approach is that all participants observe the
 play by all the teams. Whilst from a mathematical perspective reputation is
 inferred to mean the reputation gained during a particular duel, this has the
 effect of teams being able to observe how other teams seem to play. A true
@@ -488,14 +504,103 @@ slight modifications:
         discounting.
 \end{itemize}
 
-\section{Summary}
+\section{Summary and place within a pedagogic framework}\label{sec:summary}
+
+These activities have been used by the author during outreach events during
+which students take part in the activity of Section \ref{sec:best_responses} and
+whilst the results of that are being analysed take part in the activity of
+Section \ref{sec:repeated_games}. These two activities complement themselves and
+form an accessible introduction to novel mathematical topics for a wide range of
+age groups.
+
+More notably however these activities have been used as part of a family of
+activities used in a final year undergraduate course. This particular course is
+taught in active learning pedagogic framework akin to a flipped class where
+students are introduced to theoretic concepts through prior `playing of games'.
+Other examples of these activities include:
 
 \begin{itemize}
-    \item Give some examples of feedback.
-    \item Mention how methods could be applied to other courses.
-    \item Certain class management ideas (mainly that I will not speak first a
-        lot of the time) <- Not sure if this is useful.
+    \item \textbf{A rock paper scissors lizard tournament}: this serves as an
+        introduction to mixed strategies.
+    \item \textbf{A variety of games using coin flips}: this serves as an
+        introduction to game with incomplete information.
+    \item \textbf{Playing paper bin basketball in teams}: this serves as an
+        introduction to cooperative game theory.
 \end{itemize}
+
+The general pedagogical basis for this is discussed in Section
+\ref{sec:introduction} and the particular framework is shown in Figure
+\ref{fig:use_of_data}. Students are active participants in the creation of
+`data' which drives a discussion:
+
+\begin{itemize}
+    \item Why did you all guess this?
+    \item Why did that team say that on that particular occasion?
+    \item What would be a fair way of sharing the spoils for this particular
+        game?
+\end{itemize}
+
+Following that discussion the theory can be put in context by highlighting
+particular theoretic results and how they correspond (or not) to the behaviour
+exhibited during the activity. Furthermore, this encourages an immediate
+feedback with regards to student comprehension which can be reactively
+addressed.
+
+\begin{figure}[!hbtp]
+    \begin{tikzpicture}
+        % Nodes
+        \node (activity) at (0,0) [fill=cyan!30, draw] {Activity};
+        \node (data) at ($(activity) + (3,0)$) [fill=purple!30, draw] {Data};
+        \node (discussion) at ($(data) + (2,1.5)$) [fill=green!30, draw] {Discussion};
+        \node (theory) at ($(data) + (2,-1.5)$) [fill=red!30, draw] {Theory};
+
+        % Creative arrows
+        \draw [thick, ->] (activity) -- (data);
+        \draw [thick, ->] (data) edge[out=90, in=180] (discussion);
+        \draw [thick, ->] (discussion) edge[out=-45, in=45] (theory);
+
+        % Reflective arrows
+        \draw [thick, ->, dashed] (theory) edge[out=180, in=-90] (data);
+        \draw [thick, ->, dashed] (theory) edge[out=180, in=-90] (activity);
+        \draw [thick, ->, dashed] (discussion) edge[out=180, in=90] (activity);
+        \draw [thick, ->, dashed] (theory) edge[out=135, in=-135] (discussion);
+
+        % Key
+        \draw [thick, ->] ($(activity) + (-3,.25)$) -- ($(activity) + (-2.5,.25)$);
+        \node at ($(activity) + (-4, .25)$) {Production:};
+        \draw [thick, ->, dashed] ($(activity) + (-3,-.25)$) -- ($(activity) +
+        (-2.5,-.25)$);
+        \node at ($(activity) + (-4, -.25)$) {Reflection:};
+
+    \end{tikzpicture}
+    \centering
+    \caption{The active generation of data by students}
+    \label{fig:use_of_data}
+\end{figure}
+
+This pedagogic approach is used throughout the course (from the first lesson)
+and so after a few class meetings students are used to the high level of
+participation. Here are some examples of written feedback concerning the
+activities used in class.
+
+\begin{itemize}
+    \item Quote 1
+    \item Quote 2
+    \item Quote 3
+\end{itemize}
+
+Nonetheless at the start of the course certain class management
+techniques described in \cite{Rocca2010} are used. For example, the extension of
+the `waiting time' for responses to questions. For students to be active
+participants it is vital that they are given the time to do so.
+
+
+The activities described in Section \ref{sec:game_theory} are particular to game
+theory however the author does not feel that the general pedagogic strategy
+outlined in Figure \ref{fig:use_of_data} is constrained to a particular course.
+Similar activities could be devised in other subjects where students generate
+`data' than aids the contextualisation of theory so as to aspire to not only a
+constructive learning model but also a social one.
 
 \printbibliography
 \end{document}
