@@ -22,6 +22,7 @@
 % Diagrams
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage{standalone}
 
 \title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
@@ -196,54 +197,8 @@ rationally and second that some participants felt like they should `spoil' the
 game by guessing larger in the second round.
 
 \begin{figure}[!hbtp]
-    \begin{center}
-        \begin{tikzpicture}[thick,scale=0.7, every node/.style={scale=0.7}]
-            % First level of play
-            \node (0) at (0,0) {$0$};
-            \node (100) at (10,0) {$100$};
-            \draw [thick] (0) -- (100);
-            \node [below] at (6.7,0) {$67$};
-
-            % Getting rid of dominated strategies
-            \foreach \x in {7, 7.3, 7.6, 7.9, 8.2, 8.5, 8.8, 9.1, 9.4}
-            {
-                \draw [blue!80, very thick] (\x,-.25) -- (\x + .2,.25);
-            }
-            \draw [very thick, blue!80] (9, -.5) edge[out=270,in=0,->] (7, -2);
-
-                % Second level of play
-                \node (0) at (0,-2) {$0$};
-                \node (67) at (6.7,-2) {$67$};
-                \draw [thick] (0) -- (67);
-                \node [below] at (4.4,-2) {$44$};
-
-                % Getting rid of dominated strategies
-                \foreach \x in {4.7, 5, 5.3, 5.6, 5.9, 6.2}
-                {
-                    \draw [blue!60, very thick] (\x,-2.25) -- (\x + .2,-1.75);
-                }
-                \draw [very thick, blue!60] (6, -2.5) edge[out=270,in=0,->] (4.7, -4);
-
-                    % Third level of play
-                    \node (0) at (0,-4) {$0$};
-                    \node (44) at (4.4,-4) {$44$};
-                    \draw [thick] (0) -- (44);
-                    \node [below] at (2.9,-4) {$29$};
-
-                    % Getting rid of dominated strategies
-                    \foreach \x in {3.2, 3.5, 3.8}
-                    {
-                        \draw [blue!40, very thick] (\x,-4.25) -- (\x + .2,-3.75);
-                    }
-
-                        % Final level of play
-                        \node at (2, -5) {\dots};
-                        \node (0) at (1,-6) [draw] {$0$};
-                        \draw [very thick, blue!40] (3.4, -4.5) edge[out=270,in=0,->] (1.5, -6);
-
-            \node at (8, -5) [draw] {Removing dominated strategies};
-        \end{tikzpicture}
-    \end{center}
+    \centering
+        \includestandalone[width=.6\textwidth]{images/rationalisation_of_two_thirds_game}
     \caption{Equilibrium behaviour in the two thirds of the average
     game}\label{fig:rationalisation_of_two_thirds_game}
 \end{figure}
@@ -557,33 +512,8 @@ feedback with regards to student comprehension which can be reactively
 addressed.
 
 \begin{figure}[!hbtp]
-    \begin{tikzpicture}
-        % Nodes
-        \node (activity) at (0,0) [fill=cyan!30, draw] {Activity};
-        \node (data) at ($(activity) + (3,0)$) [fill=purple!30, draw] {Data};
-        \node (discussion) at ($(data) + (2,1.5)$) [fill=green!30, draw] {Discussion};
-        \node (theory) at ($(data) + (2,-1.5)$) [fill=red!30, draw] {Theory};
-
-        % Creative arrows
-        \draw [thick, ->] (activity) -- (data);
-        \draw [thick, ->] (data) edge[out=90, in=180] (discussion);
-        \draw [thick, ->] (discussion) edge[out=-45, in=45] (theory);
-
-        % Reflective arrows
-        \draw [thick, ->, dashed] (theory) edge[out=180, in=-90] (data);
-        \draw [thick, ->, dashed] (theory) edge[out=180, in=-90] (activity);
-        \draw [thick, ->, dashed] (discussion) edge[out=180, in=90] (activity);
-        \draw [thick, ->, dashed] (theory) edge[out=135, in=-135] (discussion);
-
-        % Key
-        \draw [thick, ->] ($(activity) + (-3,.25)$) -- ($(activity) + (-2.5,.25)$);
-        \node at ($(activity) + (-4, .25)$) {Production:};
-        \draw [thick, ->, dashed] ($(activity) + (-3,-.25)$) -- ($(activity) +
-        (-2.5,-.25)$);
-        \node at ($(activity) + (-4, -.25)$) {Reflection:};
-
-    \end{tikzpicture}
     \centering
+    \includestandalone[width=.6\textwidth]{images/use_of_data}
     \caption{The active generation of data by students}
     \label{fig:use_of_data}
 \end{figure}
