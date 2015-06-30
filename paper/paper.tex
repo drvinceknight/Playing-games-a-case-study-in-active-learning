@@ -1,20 +1,23 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, a4paper]{article}
 
-\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=draft]{biblatex}
-%\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=numeric]{biblatex}
+%\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=draft]{biblatex}
+\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=numeric]{biblatex}
 %\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=authoryear]{biblatex}
 \addbibresource{library.bib}
+
+\usepackage{fullpage}
 
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{subcaption}
 
+
 \usepackage{wordlike}  % Make this look like word made it
-\usepackage{xcolor}
-\usepackage{sectsty}
-\sectionfont{\color{cyan}}
-\subsectionfont{\color{cyan}}
+%\usepackage{xcolor}
+%\usepackage{sectsty}
+%\sectionfont{\color{cyan}}
+%\subsectionfont{\color{cyan}}
 
 % Diagrams
 \usepackage{tikz}
@@ -29,20 +32,20 @@
 \maketitle
 
 \abstract{
-    This paper describes two active learning activities aiming to introduce
-    students to the theoretic concepts of best response dynamics and repeated
-    game analysis.
+    This paper describes two active learning activities which aims to introduce
+    students to the game theoretic concepts of best response dynamics and
+    repeated game analysis.
 
     An overview of some literature on active learning and the benefits therein
-    is also provided. This highlights that activities such as the one described
-    in this manuscript not only help engage students but more importantly
+    is provided. This highlights that activities such as the one described
+    in this manuscript, not only help engage students but more importantly
     improve their learning and understanding.
 
-    The final section of the work describes how these activities fit in the
-    pedagogic framework of a particular class. Students generate data that
-    can be used as context for the understanding of theoretic concepts. It is
-    suggested that this framework is not restricted to the subject of game
-    theory.
+    The final section of this work describes how these activities fit in the
+    pedagogic framework of a particular undergraduate mathematics class.
+    Students generate data that can be used as context for the understanding of
+    theoretic concepts. It is suggested that this framework is not restricted to
+    the subject of game theory.
 }
 
 \section{Introduction}\label{sec:introduction}
@@ -60,10 +63,9 @@ students in the learning process. In short active learning requires students to
 do meaningful learning activities and think about what they are doing.''
 \end{quote}
 
-One could argue that all learning is active as students simply listening to a
-lecture are perhaps taking part in a `meaningful learning activity', however as
-stated in \cite{Bonwell1991} active learning is understood to imply that
-students:
+One could argue that all learning is active as simply listening to a lecture is
+perhaps taking part in a `meaningful learning activity', however as stated in
+\cite{Bonwell1991} active learning is understood to imply that students:
 
 \begin{itemize}
     \item read, write, discuss, or engage in solving problems;
@@ -72,11 +74,12 @@ students:
 \end{itemize}
 
 A variety of studies have highlighted the effectiveness of active learning
-\cite{Freeman2014, Hake1998, Prince2004}. These two papers are in fact meta studies
-evaluating the effectiveness an active student centred approach. Note that the
-definition used in \cite{Freeman2014} corresponds to simply any pedagogic
-approach in which students are not passive consumers of a lecture during the
-class meeting. Some examples of active learning in a variety of subjects include:
+\cite{Freeman2014, Hake1998, Prince2004}. These two papers are in fact meta
+studies evaluating the effectiveness of an active student centred approach. Note
+that the definition used in \cite{Freeman2014} corresponds to simply any
+pedagogic approach in which students are not passive consumers of a lecture
+during the class meeting. Some examples of active learning in a variety of
+subjects include:
 
 \begin{itemize}
     \item The flipped learning environment in a Physics class: \cite{Bates}.
@@ -93,54 +96,61 @@ learning activities used in the instruction of Game Theoretic concepts:
 
 \begin{itemize}
     \item Section \ref{sec:best_responses} will describe an in class activity
-        and software package used to introduce students to the topic of best
-        response dynamic \cite{Maschler2013}.
+        used to introduce students to the topic of best response dynamics and
+        dominated strategies \cite{Maschler2013}.
     \item Section \ref{sec:repeated_games} will describe an implementation of
         Axelrod's tournament \cite{Axelrod1980a, Axelrod1980b}.
 \end{itemize}
 
-These activities aim to introduce the student to the concepts and aspire to
-their curiosity as to the underlying mathematics. Note that if there is any
-doubt as to the effectiveness of active learning approaches, for example this paper
-(the only one that this author could identify) \cite{Andrews2011} identifies no
-such relationship are still beneficial to the students' learning.
-Indeed in \cite{Poropat2014}  the greatest predictors of
-academic performance are identified not as general intelligence \cite{Wright1905} but
-personality factors such as conscientiousness and openness.
+These activities aim to introduce participants to concepts and aspire to their
+curiosity as to the underlying mathematics. Note that if there is any doubt as
+to the effectiveness of active learning approaches, for example
+\cite{Andrews2011} which identifies no such relationship, inciting curiosity and
+engagement aare still beneficial to the students' learning.  Indeed in
+\cite{Poropat2014}  the greatest predictors of academic performance are
+identified not as general intelligence \cite{Wright1905} but personality factors
+such as conscientiousness and openness.
+
+Section \ref{sec:game_theory} will describe the activities and Section
+\ref{sec:summary} will detail how these fit in a more general pedagogic context.
+Finally, all source files for this paper (including data and the analysis) can
+be found at this url:
+\url{https://github.com/drvinceknight/Playing-games-a-case-study-in-active-learning}.
 
 \section{An exemplar: a course in game theory}\label{sec:game_theory}
 
 Game Theory as a topic is well suited to approaches that use activities
-involving students as players to introduce the concepts, rules and strategies
+involving participants as players to introduce the concepts, rules and strategies
 for particular games and/or theorems presented.
 
-In \cite{Brokaw2004} one such activity is presented: a game that allow players
+In \cite{Brokaw2004} one such activity is presented: a game that allows players
 to grasp the concept of common knowledge of rationality. Another good example is
 \cite{Polak2008}: Yale's Professor Polak's course, the videos available at that
 reference (a YouTube playlist) all show that students are introduced to every
-concept through activity before discussing theory.
+concept through activity before discussing theory (this is akin to the framework
+discussed in Section \ref{sec:summary}.
 
 Just as the activity presented in \cite{Brokaw2004} the activities presented
-here are both suited for as an early introduction to the concepts (although the
-activity of Section \ref{sec:repeated_games} is potentially better suited to
-being used at a later stage). Furthermore, these activities have also been used
-as outreach activities for high school students with no knowledge of further
-mathematics.
+here are suited for an early introduction to the concepts (although the activity
+of Section \ref{sec:repeated_games} is potentially better suited to being used
+at a later stage). Furthermore, these activities have also been used
+successfully as outreach activities for high school students with no knowledge
+of further mathematics.
 
-\subsection{Best response dynamics}\label{sec:best_responses}
+\subsection{Best response dynamics and dominated strategies}\label{sec:best_responses}
 
 The first step in this activity and potentially before any prior description of
-Game Theory students are invited to answer the following simple question:
+Game Theory is to invite participants to answer the following simple question:
 
 \begin{center}
     \textbf{What is a game?}
 \end{center}
 
-Through discussion the class will usually arrive at the following consensus:
+Through discussion the participants will usually arrive at the following consensus:
 
 \begin{itemize}
     \item A game must have a certain number \(N\geq 1\) of players;
-    \item Each player must have available to them a certain number of strategies
+    \item Each player must have available to them a certain set of strategies
         that define what they can do;
     \item Once all players have chosen their strategy, rules must specify what
         the outcome is.
@@ -148,29 +158,28 @@ Through discussion the class will usually arrive at the following consensus:
 
 This corresponds to the general definition of a strategic form game
 \cite{Maschler2013}. The main goal of this activity is to not only understand
-the vocabulary but also the important concept of response dynamics which aims
-to identify what is the best option given prior knowledge of all other players
-\cite{Maschler2013}. One particular game that can be analysed using base
+the vocabulary but also the important concept of best response dynamics which
+aims to identify what is the best option given prior knowledge of all other
+players \cite{Maschler2013}. A particular game that can be analysed using base
 response dynamics is often referred to:
 
 \begin{center}
     \textbf{The two thirds of the average game.}
 \end{center}
 
-A good description of the game and the human dynamics associated to the play is
-given in \cite{Nagel1995}.  The use of this game in teaching is not novel in
-game theory \cite{TheEconomicsNetwork2013}
-The rules are as follows:
+A good description of the game and the human dynamics associated to it is given
+in \cite{Nagel1995}.  The use of this game in teaching is not at all novel
+\cite{TheEconomicsNetwork2013}. The rules are as follows:
 
 \begin{itemize}
     \item All players choose a number between 0 and 100;
-    \item The player whose choice was closest to \(\frac{2}{3}\) of the average
+    \item The player whose guess is closest to \(\frac{2}{3}\) of the average
         of the choices wins.
 \end{itemize}
 
 To make use of this game in class as an introduction to the concept of best
 response dynamics students are handed a sheet of paper inviting them to write
-down a first play. After this initial play, a discussion is had that
+down a first guess. After this initial play, a discussion is had that
 demonstrates that the equilibrium for this game is for all players to guess 0.
 This is shown diagrammatically in Figure
 \ref{fig:rationalisation_of_two_thirds_game}.
@@ -180,8 +189,11 @@ their second guess. All of the results are collected, the author has used paper
 forms but an automated approach could also be used. In general the input and
 analysis of the data takes less than 10 minutes and can be done by a helper
 during another class activity.
-Following this, the result shown in Figure \ref{fig:histogram_of_guess} are
-shown and discussed with the class.
+Following this, the results (corresponding to the results of Figure
+\ref{fig:histogram_of_guess}) are shown and discussed.
+This discussion usually revolves around the observation that not everyone acted
+rationally and second that some participants felt like they should `spoil' the
+game by guessing larger in the second round.
 
 \begin{figure}[!hbtp]
     \begin{center}
@@ -238,7 +250,7 @@ shown and discussed with the class.
 
 The author has used this activity on a large number of occasions and at all
 times collected the data. Figure \ref{fig:histogram_of_guess} shows the
-distribution of the guesses (depending on the round of play):
+distribution of the guesses (depending on the round of play).
 
 \begin{figure}[!hbtp]
     \begin{subfigure}{.6\textwidth}
@@ -268,12 +280,12 @@ relationship (albeit a weak one with \(R^2=.2\)):
     \label{eq:linear_relationship}
 \end{equation}
 
-The fact that the coefficient of the relationship is less than one highlights
-that the second guess is in general lower than the first guess. As can be seen
-in Figure \ref{fig:all_results} not all students reduce their guess. Figure
-\ref{fig:results_with_decreasing_guess} shows the results when removing these
-irrational moves. In this particular case the linear relationship is in fact
-stronger \(R^2=.43\):
+The fact that the coefficient of the relationship (\(.203\)) is less than one
+highlights that the second guess is in general lower than the first guess. As
+can be seen in Figure \ref{fig:all_results} not all students reduce their guess.
+Figure \ref{fig:results_with_decreasing_guess} shows the results when removing
+these irrational moves. In this particular case the linear relationship is in
+fact stronger \(R^2=.43\):
 
 \begin{equation}
     (\text{Second guess}) = .33\times(\text{First guess}) + 0.20
@@ -297,24 +309,18 @@ stronger \(R^2=.43\):
     \label{fig:results_with_decreasing_guess}
 \end{figure}
 
-At the end of the activity, students are shown the graphical results and a
-discussion had about why the theoretic equilibrium was not the winner. This
-discussion usually revolves around the observation that not everyone acted
-rationally and second that some participants felt like they should `spoil' the
-game by guessing larger in the second round.
-
 Finally, if time permits (and depending on the level of the participants), the
 linear relationship of (\ref{eq:linear_relationship}) is used to discuss what
 would happen if more rounds were to be played. In particular it is possible to
-discuss ideas of convergence when generalising (\ref{eq:linear_relationship}) to
-be:
+discuss ideas of convergence (cobweb diagrams in particular) when generalising
+(\ref{eq:linear_relationship}) to be:
 
 \begin{equation}
     \text{Guess}_{n+1} = .203\times\text{Guess}_n + 9.45
     \label{eq:extrapolated_linear_relationship}
 \end{equation}
 
-To summarise this activity:
+To summarise this activity has the following steps:
 
 \begin{enumerate}
     \item Participants are explained the rules and play one round of the two
@@ -327,7 +333,7 @@ To summarise this activity:
 
 This activity is still quite passive in terms of physical activity (participants are
 seated throughout). Nevertheless it allows the data used for the discussion of
-the theory to come directly from the participants and further more all students
+the theory to come directly from the participants. Further more all students
 are active participants and there are no difficulties with regards to
 encouraging participation (references to these are discussed in \cite{Rocca2010}).
 
@@ -335,7 +341,7 @@ encouraging participation (references to these are discussed in \cite{Rocca2010}
 
 This activity is used to introduce students to the concepts of repeated games
 \cite{Maschler2013}. The mathematical details can be omitted from the initial
-description of the activity to the participants but for completeness it they are
+description of the activity to the participants but for completeness they are
 included here:
 
 A repeated game is played over discrete time periods. Each time period is
@@ -347,8 +353,8 @@ chosen by each player in each previous time period).  The payoff is defined
 as the sum of the utilities in each stage game for every time period.
 
 One of the most renowned repeated games is referred to as \textbf{Axelrod's
-tournament} which is what is recreated in this activity \cite{Axelrod1980a,
-Axelrod1980b}.
+tournament} \cite{Axelrod1980a, Axelrod1980b} which is what is recreated in this
+activity.
 
 Initially a description of the prisoner's dilemma \cite{Maschler2013} is given.
 The prisoner's dilemma is a simple two player game that is often used to
@@ -369,7 +375,7 @@ following two matrices:
     \end{pmatrix}
 \]
 
-The row player has utility given by \(A\) and the column player has utilities
+The row player has utility given by \(A\) and the column player has utility
 given by \(B\).
 The strategies available to each player are to cooperate: \(C\) or to defect:
 \(D\). Playing \(C\) corresponds to players choosing their first row/column and
@@ -384,8 +390,8 @@ for both players to defect.
 After describing this activity and in particular explaining the simple
 mathematical idea of \textbf{dominated strategy} (which is what is used in the
 activity of Section \ref{sec:best_responses}) participants are made aware of the
-concept of Nash equilibrium. This in turn can lead to a brief description of the
-tragic yet brilliant life of John Nash.
+concept of Nash equilibrium. (This in turn can lead to a brief description of the
+tragic yet brilliant life of John Nash).
 
 At this point the activity is described:
 
@@ -398,27 +404,29 @@ At this point the activity is described:
     \item The victorious team will be the team with the highest total score.
 \end{enumerate}
 
-The tournament is run with all participants present (even those not watching).
-All participants are invited to stand and confer in their teams. The importance
-of standing (as a physical activity) is noted in \cite{Donnelly2011} (whilst
-that reference is mainly concerned with the impact of activity on physical well
-being it also describes advantages in terms of concentration).  Before every
-round of every duel opposing teams are encouraged to discuss strategies, after
-which they do not face each other and following a prompt hold up a card
-indicating either \(C\) or \(D\).  Duels are recorded on the white board in a
-table similar to the one shown in Table \ref{tab:duel}, in which two strategies
-constantly cooperate (thus obtaining a utility of 3 in each round). Table
-\ref{tab:duel_1} shows an example where a strategy that is alternating plays
-against a strategy that always defects.
+The tournament is run with all participants present (even those not involved in
+a duel).  All participants are invited to stand and confer in their teams. The
+importance of standing (as a physical activity) is noted in \cite{Donnelly2011}
+(whilst that reference is mainly concerned with the impact of activity on
+physical well being it also describes advantages in terms of concentration).
+Before every round of every duel opposing teams are encouraged to discuss
+strategies, after which they face away from each other and following a prompt
+hold up a card indicating either \(C\) or \(D\).  Duels are recorded on a wall
+board in a table similar to the ones shown in Tables \ref{tab:duel} and
+\ref{tab:duel}.  Table \ref{tab:duel} shows two strategies which constantly
+cooperate (thus obtaining a utility of 3 in each round). Table \ref{tab:duel_1}
+shows an example where a strategy that is alternating plays against a strategy
+that always defects.  Figure \ref{fig:white_board} shows a photo of a final
+board for a particular implementation of this activity.
 
 \begin{table}[!htbp]
     \caption{Playing Tit For Tat against Cooperator}
     \centering
-    \begin{tabular}{ccccc}
+    \begin{tabular}{lccccc}
         \toprule
-        3&6&9&12&15\\
+        Tit For Tat&3&6&9&12&15\\
         \midrule
-        3&6&9&12&15\\
+        Cooperator&3&6&9&12&15\\
         \bottomrule
     \end{tabular}
     \label{tab:duel}
@@ -427,18 +435,15 @@ against a strategy that always defects.
 \begin{table}[!htbp]
     \caption{Playing Alternator against Defector}
     \centering
-    \begin{tabular}{ccccc}
+    \begin{tabular}{lccccc}
         \toprule
-        5&6&11&12&17\\
+        Defector&5&6&11&12&17\\
         \midrule
-        0&1&1&2&2\\
+        Alternator&0&1&1&2&2\\
         \bottomrule
     \end{tabular}
     \label{tab:duel_1}
 \end{table}
-
-Figure \ref{fig:white_board} shows a photo of a final board for a particular
-implementation of this activity.
 
 \begin{figure}[!hbtp]
     \centering
@@ -450,14 +455,15 @@ implementation of this activity.
 The names of the strategies shown in Tables \ref{tab:duel} and \ref{tab:duel_1}
 are strategies that were used in the original tournaments run by Axelrod
 \cite{Axelrod1980a, Axelrod1980b}. The interesting fact of repeated games and
-one that becomes apparent to participants through the activity is that whilst
-repeating the stage Nash equilibrium (always defect) is indeed a Nash
-equilibrium for the repeated games, this equilibrium is not unique as
-reputation now has a part to play.
+one that usually becomes apparent to participants through the activity is that
+whilst repeating the stage Nash equilibrium (always defect) is indeed a Nash
+equilibrium for the repeated games, this equilibrium is not unique as reputation
+now has a part to play.
 
-Note that if students do not realise this it is important to remind them that
-the goal is not to win each duel but to obtain a high score. Often during the
-tournament one team will (during the pre round discussion) exclaim:
+Note that if participants do not realise that this it is important to remind
+them that the goal is not to win each duel but to obtain a high score overall.
+Often during the tournament one team will (during the pre round discussion)
+exclaim:
 
 \begin{quote}
    ``We will cooperate until you defect, at which point we will defect
@@ -486,12 +492,13 @@ effect of teams being able to observe how other teams seem to play. A true
 replication of Axelrod's tournament would not allow for this. One possibility
 would invite participants to leave the room which might be logistically
 constrained. From a pedagogic point of view however, having participants observe
-the duels often leads to a much more engaged discussion (after as well as during
+the duels often leads to a much more engaged discussion (after, as well as during
 the activity).
 
 This activity is usually very enjoyable and leads to a lively discussion.
 Further to the fun had by participants, the theoretic discussion about repeated
-games can be placed in the exact context of the tournament that was just played.
+games can be placed in the exact context of the tournament that has just been
+played.
 
 This activity can be used to introduce further game theoretic topics with
 slight modifications:
@@ -500,12 +507,11 @@ slight modifications:
     \item \textbf{Infinitely repeated games with discounting}: the discount
         factor can be interpreted as a probability of the duel continuing for
         another round (this can be randomly sampled).
-    \item \textbf{Markov games}: the two random game states can be a true game
+    \item \textbf{Markov games}: two random game states can be a true game
         and an absorbing game so that this corresponds to an infinite game with
         discounting.
-    \item \textbf{Evolutionary games}: the two random game states can be a true game
-        and an absorbing game so that this corresponds to an infinite game with
-        discounting.
+    \item \textbf{Evolutionary games}: this follows from considering strategies
+        in an evolutionary context as showin in \ref{fig:evolutionary_axelrod}.
 \end{itemize}
 
 \section{Summary and place within a pedagogic framework}\label{sec:summary}
@@ -546,7 +552,7 @@ The general pedagogical basis for this is discussed in Section
 
 Following that discussion the theory can be put in context by highlighting
 particular theoretic results and how they correspond (or not) to the behaviour
-exhibited during the activity. Furthermore, this encourages an immediate
+exhibited during the activity. Furthermore, this encourages immediate
 feedback with regards to student comprehension which can be reactively
 addressed.
 
@@ -593,17 +599,17 @@ activities used in class:
     \item ``This course teaches me to not trust my classmates.''
 \end{itemize}
 
-Nonetheless at the start of the course certain class management
-techniques described in \cite{Rocca2010} are used. For example, the extension of
-the `waiting time' for responses to questions. For students to be active
-participants it is vital that they are given the time to do so.
+Nonetheless at the start of the course certain class management techniques
+described in \cite{Rocca2010} are used. For example, the extension of the
+`waiting time' for responses to questions is implemented. For students to be
+active participants it is vital that they are given the time to do so.
 
 
 The activities described in Section \ref{sec:game_theory} are particular to game
 theory however the author does not feel that the general pedagogic strategy
-outlined in Figure \ref{fig:use_of_data} is constrained to a particular course.
+outlined in Figure \ref{fig:use_of_data} is constrained to a particular subject.
 Similar activities could be devised in other subjects where students generate
-`data' than aids the contextualisation of theory so as to aspire to not only a
+`data' that aids the contextualisation of theory so as to aspire to not only a
 constructive learning model but also a social one.
 
 \printbibliography
