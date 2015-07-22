@@ -1,9 +1,7 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass{article}
 
-%\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=draft]{biblatex}
-\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=numeric]{biblatex}
-%\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=authoryear]{biblatex}
-\addbibresource{library.bib}
+\usepackage{fullpage}
+\usepackage{parskip}
 
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -11,17 +9,13 @@
 \usepackage{subcaption}
 
 
-\usepackage{wordlike}  % Make this look like word made it
-\usepackage{xcolor}
-\usepackage{sectsty}
-\sectionfont{\color{cyan}}
-\subsectionfont{\color{cyan}}
-
-\usepackage{parskip}
 % Diagrams
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{standalone}
+
+\usepackage[backend=biber, firstinits=false , backref=false, url=true, isbn=true, style=numeric]{biblatex}
+\addbibresource{library.bib}
 
 \title{Playing Games: A Case Study in Active Learning Applied to Game Theory}
 \author{Vince Knight}
@@ -31,7 +25,7 @@
 
 \maketitle
 
-\abstract{
+\begin{abstract}
     This paper describes two active learning activities which aims to introduce
     students to the game theoretic concepts of best response dynamics and
     repeated game analysis.
@@ -46,7 +40,7 @@
     Students generate data that can be used as context for the understanding of
     theoretic concepts. It is suggested that this framework is not restricted to
     the subject of game theory.
-}
+\end{abstract}
 
 \section{Introduction}\label{sec:introduction}
 
@@ -290,6 +284,9 @@ seated throughout). Nevertheless it allows the data used for the discussion of
 the theory to come directly from the participants. Further more all students
 are active participants and there are no difficulties with regards to
 encouraging participation (references to these are discussed in \cite{Rocca2010}).
+
+At the time of writing, software is being written to help quickly analyse plays of the game (and produce the graphs seen above). Documentation for this can be found here: \url{http://twothirds.readthedocs.org/}.
+
 
 \subsection{Repeated and random games}\label{sec:repeated_games}
 
@@ -540,6 +537,10 @@ outlined in Figure \ref{fig:use_of_data} is constrained to a particular subject.
 Similar activities could be devised in other subjects where students generate
 `data' that aids the contextualisation of theory so as to aspire to not only a
 constructive learning model but also a social one.
+
+\textbf{Acknowledgements}
+
+The author would like to thank Dr Zo{\"e} Prytherch for her help with the typesetting of the published version of this manuscript.
 
 \printbibliography
 \end{document}
